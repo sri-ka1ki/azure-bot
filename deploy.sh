@@ -120,7 +120,12 @@ fi
 cp "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot" "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot.coffee"
 echo "starting the hubot from deploy.sh"
 /d/home/site/wwwroot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &
-echo "hubot started (or so they say)"
+
+echo "hubot started (or so they say). Now trying with forever"
+
+forever start --uid "universe-bot" --verbose --append -l "\D\home\site\wwwroot\universe-bot.log" --sourceDir "\D\home\site\wwwroot\" --workingDir "\D\home\site\wwwroot\" --minUptime 100 --spinSleepTime 100 .\node_modules\coffee-script\bin\coffee .\node_modules\hubot\bin\hubot.coffee
+
+
 
 ##################################################################################################################################
 echo "Finished successfully."
