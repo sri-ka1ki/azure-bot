@@ -119,7 +119,7 @@ fi
 
 cp "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot" "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot.coffee"
 echo "starting the hubot from deploy.sh"
-/d/home/site/wwwroot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log &
+/d/home/site/wwwroot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &
 echo "hubot started (or so they say)"
 
 ##################################################################################################################################
