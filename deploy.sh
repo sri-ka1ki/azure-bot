@@ -130,7 +130,7 @@ eval $FIRSTCOMMAND
 
 echo "hubot started (or so they say). Now trying with forever"
 
-COFFEE='/D/home/site/wwwroot/node_modules/coffee-script/bin/coffee'
+COFFEE='../wwwroot/node_modules/coffee-script/bin/coffee'
 HUBOT='/D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee'
 FOREVER='/d/home/site/wwwroot/node_modules/forever/bin/forever'
 COMMAND="$FOREVER start --uid \"universe-bot\" --verbose --append -l \"/D/home/site/wwwroot/universe-bot.log\" --minUptime 100 --spinSleepTime 100 $COFFEE $HUBOT"
