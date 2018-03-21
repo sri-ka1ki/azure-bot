@@ -122,7 +122,7 @@ fi
 
 cp "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot" "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot.coffee"
 echo "starting the hubot from deploy.sh"
-FIRSTCOMMAND="/d/home/site/wwwroot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &"
+FIRSTCOMMAND="/D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &"
 
 echo "Running first command: $FIRSTCOMMAND"
 
@@ -150,8 +150,8 @@ else
   echo "Failed to find $HUBOT"
 fi
 
-echo "Running command: $COMMAND"
-eval $COMMAND
+#echo "Running command: $COMMAND"
+#eval $COMMAND
 
 echo "Dumping environment:"
 echo ENV
