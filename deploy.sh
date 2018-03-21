@@ -122,7 +122,12 @@ fi
 
 cp "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot" "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot.coffee"
 echo "starting the hubot from deploy.sh"
-FIRSTCOMMAND="/D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &"
+
+COFFEE_PATH="/D/home/site/wwwroot/node_modules/coffee-script/bin/coffee"
+
+FIRSTCOMMAND="$COFFEE_PATH /D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &"
+
+
 
 echo "Running first command: $FIRSTCOMMAND"
 
@@ -131,6 +136,7 @@ eval $FIRSTCOMMAND
 echo "Printing logs: "
 cat hubot.sh.log
 echo "hubot started (or so they say). Now trying with forever"
+
 
 COFFEE='../wwwroot/node_modules/coffee-script/bin/coffee'
 HUBOT='/D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee'
