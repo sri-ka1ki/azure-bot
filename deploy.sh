@@ -123,47 +123,12 @@ fi
 cp "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot" "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot.coffee"
 echo "starting the hubot from deploy.sh"
 
-COFFEE_PATH="/D/home/site/wwwroot/node_modules/coffee-script/bin/coffee"
-
-FIRSTCOMMAND="$COFFEE_PATH /D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &"
+HUBOT_COMMAND="./bin/hubot"
 
 
+echo "Running command: $HUBOT_COMMAND"
 
-echo "Running first command: $FIRSTCOMMAND"
-
-eval $FIRSTCOMMAND
-
-echo "Printing logs: "
-cat hubot.sh.log
-echo "hubot started (or so they say). Now trying with forever"
-
-
-COFFEE='../wwwroot/node_modules/coffee-script/bin/coffee'
-HUBOT='/D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee'
-FOREVER='/d/home/site/wwwroot/node_modules/forever/bin/forever'
-COMMAND="$FOREVER start --uid \"universe-bot\" --verbose --append -l \"/D/home/site/wwwroot/universe-bot.log\" --minUptime 100 --spinSleepTime 100 $COFFEE $HUBOT"
-
-#COMMAND="$FOREVER start --uid \"universe-bot\" --verbose --append -l \"/D/home/site/wwwroot/universe-bot.log\" --sourceDir \"/D/home/site/wwwroot\" --workingDir \"/D/home/site/wwwroot\" --minUptime 100 --spinSleepTime 100 $COFFEE $HUBOT"
-
-# Lets do some logic
-if [ -f $COFFEE ]; then
-  echo "we found the coffee exec"
-else
-  echo "Failed to find coffee exc"
-fi
-
-if [ -f $HUBOT ]; then
-  echo "Found the file $HUBOT"
-else
-  echo "Failed to find $HUBOT"
-fi
-
-#echo "Running command: $COMMAND"
-#eval $COMMAND
-
-echo "Dumping environment:"
-echo ENV
-
+eval $HUBOT_COMMAND
 
 ##################################################################################################################################
 echo "Finished successfully."
