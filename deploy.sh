@@ -123,7 +123,26 @@ echo "starting the hubot from deploy.sh"
 
 echo "hubot started (or so they say). Now trying with forever"
 
-/d/home/site/wwwroot/node_modules/forever/bin/forever start --uid "universe-bot" --verbose --append -l '\D\home\site\wwwroot\universe-bot.log' --sourceDir '\D\home\site\wwwroot\' --workingDir '\D\home\site\wwwroot\' --minUptime 100 --spinSleepTime 100 '\D\home\site\wwwroot\node_modules\coffee-script\bin\coffee \D\home\site\wwwroot\node_modules\hubot\bin\hubot.coffee'
+COFFEE='\D\home\site\wwwroot\node_modules\coffee-script\bin\coffee'
+HUBOT='\D\home\site\wwwroot\node_modules\hubot\bin\hubot.coffee'
+FOREVER='/d/home/site/wwwroot/node_modules/forever/bin/forever'
+COMMAND = "$FOREVER start --uid \"universe-bot\" --verbose --append -l \"\D\home\site\wwwroot\universe-bot.log\" --sourceDir \"\D\home\site\wwwroot\\" --workingDir "\D\home\site\wwwroot\\" --minUptime 100 --spinSleepTime 100 $COFFEE $HUBOT
+
+# Lets do some logic
+if [ -f $COFFEE ]; then
+  echo "we found the coffee exec"
+else
+  echo "Failed to find coffee exc"
+fi
+
+if [ -f $HUBOT ]; then
+  echo "Found the file $HUBOT"
+else
+  echo "Failed to find $HUBOT"
+fi
+
+echo "Running command: $COMMAND"
+eval $COMMAND
 
 
 
