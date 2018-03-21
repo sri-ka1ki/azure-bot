@@ -28,6 +28,7 @@ exitWithMessageOnError "Missing node.js executable, please install node.js, if a
 
 SCRIPT_DIR="${BASH_SOURCE[0]%\\*}"
 SCRIPT_DIR="${SCRIPT_DIR%/*}"
+echo "Script dir = $SCRIPT_DIR"
 ARTIFACTS=$SCRIPT_DIR/../artifacts
 KUDU_SYNC_CMD=${KUDU_SYNC_CMD//\"}
 
@@ -48,6 +49,8 @@ if [[ ! -n "$DEPLOYMENT_TARGET" ]]; then
 else
   KUDU_SERVICE=true
 fi
+
+echo "Deploy target = $DEPLOYMENT_TARGET"
 
 if [[ ! -n "$KUDU_SYNC_CMD" ]]; then
   # Install kudu sync
@@ -119,7 +122,11 @@ fi
 
 cp "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot" "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot.coffee"
 echo "starting the hubot from deploy.sh"
-/d/home/site/wwwroot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &
+FIRSTCOMMAND="/d/home/site/wwwroot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &"
+
+echo "Running first command: $FIRSTCOMMAND"
+
+eval $FIRSTCOMMAND
 
 echo "hubot started (or so they say). Now trying with forever"
 
