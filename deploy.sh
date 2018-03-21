@@ -128,6 +128,8 @@ echo "Running first command: $FIRSTCOMMAND"
 
 eval $FIRSTCOMMAND
 
+echo "Printing logs: "
+cat hubot.sh.log
 echo "hubot started (or so they say). Now trying with forever"
 
 COFFEE='../wwwroot/node_modules/coffee-script/bin/coffee'
