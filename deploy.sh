@@ -125,7 +125,7 @@ echo "starting the hubot from deploy.sh"
 
 COFFEE_PATH="/D/home/site/wwwroot/node_modules/coffee-script/bin/coffee"
 
-FIRSTCOMMAND="$COFFEE_PATH /D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name universe-bot --adapter slack > hubot.sh.log 2>&1 &"
+FIRSTCOMMAND="$COFFEE_PATH /D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name azure-bot --adapter slack > hubot.sh.log 2>&1 &"
 
 
 
