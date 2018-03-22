@@ -129,12 +129,6 @@ FIRSTCOMMAND="$COFFEE_PATH /D/home/site/wwwroot/node_modules/hubot/bin/hubot.cof
 
 ME=`whoami`
 
-WINDOWS_COMMAND="taskkill /USERNAME $ME /F /S node"
-
-eval $WINDOWS_COMMAND
-
-
-
 if [ "$(pgrep -U $ME node)" != "" ]; then
     echo "Killing previous process... ($(pgrep -U $ME node))"
     pkill -U $ME node
