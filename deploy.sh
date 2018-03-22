@@ -125,7 +125,7 @@ echo "starting the hubot from deploy.sh"
 
 COFFEE_PATH="/home/site/wwwroot/node_modules/coffee-script/bin/coffee"
 
-FIRSTCOMMAND="$COFFEE_PATH /home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name azure-bot --adapter slack > hubot.log 2>&1 &"
+COMMAND="$COFFEE_PATH /home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name azure-bot --adapter slack > hubot.log 2>&1 &"
 
 ME=`whoami`
 
@@ -134,9 +134,9 @@ if [ "$(pgrep -U $ME node)" != "" ]; then
     pkill -U $ME node
 fi
 
-echo "Running first command: $FIRSTCOMMAND"
+echo "Running command: $COMMAND"
 
-eval $FIRSTCOMMAND
+eval $COMMAND
 
 echo "Printing logs: "
 cat hubot.log
