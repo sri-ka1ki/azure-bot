@@ -138,32 +138,6 @@ cat hubot.sh.log
 echo "hubot started (or so they say)."
 
 
-# COFFEE='../wwwroot/node_modules/coffee-script/bin/coffee'
-# HUBOT='/D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee'
-# FOREVER='/d/home/site/wwwroot/node_modules/forever/bin/forever'
-# COMMAND="$FOREVER start --uid \"universe-bot\" --verbose --append -l \"/D/home/site/wwwroot/universe-bot.log\" --minUptime 100 --spinSleepTime 100 $COFFEE $HUBOT"
-
-# #COMMAND="$FOREVER start --uid \"universe-bot\" --verbose --append -l \"/D/home/site/wwwroot/universe-bot.log\" --sourceDir \"/D/home/site/wwwroot\" --workingDir \"/D/home/site/wwwroot\" --minUptime 100 --spinSleepTime 100 $COFFEE $HUBOT"
-
-# # Lets do some logic
-# if [ -f $COFFEE ]; then
-#   echo "we found the coffee exec"
-# else
-#   echo "Failed to find coffee exc"
-# fi
-
-# if [ -f $HUBOT ]; then
-#   echo "Found the file $HUBOT"
-# else
-#   echo "Failed to find $HUBOT"
-# fi
-
-# #echo "Running command: $COMMAND"
-# #eval $COMMAND
-
-# echo "Dumping environment:"
-# echo ENV
-
 
 ##################################################################################################################################
 echo "Finished successfully."
