@@ -123,12 +123,13 @@ fi
 cp "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot" "$DEPLOYMENT_TARGET/node_modules/hubot/bin/hubot.coffee"
 echo "starting the hubot from deploy.sh"
 
-HUBOT_COMMAND="./bin/hubot"
+COFFEE_PATH="/D/home/site/wwwroot/node_modules/coffee-script/bin/coffee"
 
+FIRSTCOMMAND="$COFFEE_PATH /D/home/site/wwwroot/node_modules/hubot/bin/hubot.coffee --name universe-bot --adapter slack 2>&1 &"
 
-echo "Running command: $HUBOT_COMMAND"
+echo "Running first command: $FIRSTCOMMAND"
 
-eval $HUBOT_COMMAND
+eval $FIRSTCOMMAND
 
 ##################################################################################################################################
 echo "Finished successfully."
